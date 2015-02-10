@@ -14,16 +14,20 @@ is.h5 = (function() {
 	return false
 })()
 
-is._class = function(val) {
+function _class(val) {
 	var name = obj.toString.call(val)
 	// [object Class]
 	return name.substring(8, name.length - 1).toLowerCase()
 }
 
-is._type = function(val) {
+function _type(val) {
 	// undefined object boolean number string symbol function
 	return typeof val
 }
+
+is._class = _class
+
+is._type = _type
 
 // not a number
 is.nan = function(val) {
@@ -35,7 +39,7 @@ is.infinite = function(val) {
 }
 
 is.num = is.number = function(num) {
-	return !isNaN(num) && 'number' == is._class(num)
+	return !isNaN(num) && 'number' == _class(num)
 }
 
 // int or decimal
@@ -63,7 +67,7 @@ is.int = function(val) {
 // object or function
 is.oof = function(val) {
 	if (val) {
-		var tp = is._type(val)
+		var tp = _type(val)
 		return 'object' == tp || 'function' == tp
 	}
 	return false
@@ -71,12 +75,12 @@ is.oof = function(val) {
 
 // regexp should return object
 is.obj = is.object = function(obj) {
-	return is.oof(obj) && 'function' != is._class(obj)
+	return is.oof(obj) && 'function' != _class(obj)
 }
 
 is.hash = is.plainObject = function(hash) {
 	if (hash) {
-		if ('object' == is._class(hash)) {
+		if ('object' == _class(hash)) {
 			// old window is object
 			if (hash.nodeType || hash.setInterval) {
 				return false
@@ -88,16 +92,16 @@ is.hash = is.plainObject = function(hash) {
 }
 
 is.undef = function(val) {
-	return 'undefined' == is._type(val)
+	return 'undefined' == _type(val)
 }
 
 // host function should return function, e.g. alert
 is.fn = function(fn) {
-	return 'function' == is._class(fn)
+	return 'function' == _class(fn)
 }
 
 is.str = is.string = function(str) {
-	return 'string' == is._class(str)
+	return 'string' == _class(str)
 }
 
 // number or string
@@ -106,7 +110,7 @@ is.nos = function(val) {
 }
 
 is.array = function(arr) {
-	return 'array' == is._class(arr)
+	return 'array' == _class(arr)
 }
 
 is.arraylike = function(arr) {
@@ -138,7 +142,7 @@ is.empty = function(val) {
 is.element = function(elem) {
 	if (is.obj(elem) && 1 === elem.nodeType) {
 		if (is.h5) {
-			return /element/.test(is._class(elem))
+			return /element/.test(_class(elem))
 		}
 		return true
 	}
