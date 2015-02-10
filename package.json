@@ -1,0 +1,29 @@
+{
+  "name": "min-is",
+  "version": "1.1.0",
+  "description": "Check if a value is something",
+  "main": "index.js",
+  "scripts": {
+    "test": "browserify test* | poor -b ie:6..8,chrome",
+    "readme": "pretty-readme > readme.md"
+  },
+  "author": "chunpu",
+  "license": "ISC",
+  "devDependencies": {
+    "poor": "latest",
+    "browserify": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chunpu/min-is.git"
+  },
+  "keywords": [
+    "is",
+    "test",
+    "type"
+  ],
+  "bugs": {
+    "url": "https://github.com/chunpu/min-is/issues"
+  },
+  "homepage": "https://github.com/chunpu/min-is"
+}
