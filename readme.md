@@ -1,6 +1,7 @@
 min-is
 ===
 
+[![Build status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
@@ -58,5 +59,7 @@ ISC
 
 [npm-image]: https://img.shields.io/npm/v/min-is.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/min-is
+[travis-image]: https://img.shields.io/travis/chunpu/min-is.svg?style=flat-square
+[travis-url]: https://travis-ci.org/chunpu/min-is
 [downloads-image]: http://img.shields.io/npm/dm/min-is.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/min-is
