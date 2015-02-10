@@ -6,6 +6,14 @@ is.browser = (function() {
 	return global.window == global
 })()
 
+// simple modern browser detect
+is.h5 = (function() {
+	if (is.browser && navigator.geolocation) {
+		return true
+	}
+	return false
+})()
+
 is._class = function(val) {
 	var name = obj.toString.call(val)
 	// [object Class]
@@ -79,6 +87,10 @@ is.hash = is.plainObject = function(hash) {
 	return false
 }
 
+is.undef = function(val) {
+	return 'undefined' == is._type(val)
+}
+
 // host function should return function, e.g. alert
 is.fn = function(fn) {
 	return 'function' == is._class(fn)
@@ -113,7 +125,6 @@ is.empty = function(val) {
 	if (is.str(val) || is.arraylike(val)) {
 		return 0 === val.length
 	}
-	// TODO comfirm
 	if (is.hash(val)) {
 		for (var key in val) {
 			if (val.hasOwnProperty(key)) {
@@ -126,7 +137,10 @@ is.empty = function(val) {
 
 is.element = function(elem) {
 	if (is.obj(elem) && 1 === elem.nodeType) {
-		return /element/.test(is._class(elem))
+		if (is.h5) {
+			return /element/.test(is._class(elem))
+		}
+		return true
 	}
 	return false
 }

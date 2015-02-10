@@ -1,10 +1,10 @@
 {
   "name": "min-is",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Check if a value is something",
   "main": "index.js",
   "scripts": {
-    "test": "browserify test* | poor -b ie:6..8,chrome",
+    "test": "browserify *test*.js | poor -b ie:6..8,chrome",
     "readme": "pretty-readme > readme.md"
   },
   "author": "chunpu",

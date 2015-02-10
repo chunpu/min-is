@@ -19,12 +19,14 @@ Api
 ##### boolean
 
 - `is.browser`
+- `is.h5` simple modern browser detect
 
 ##### function
 
 - `is.num` `is.number`
 - `is.int`
 - `is.decimal`
+- `is.undef`
 - `is.hash` `is.plainObject`
 - `is.obj` `is.object`
 - `is.fn`

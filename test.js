@@ -184,6 +184,7 @@ describe('hash, plain object', function() {
 		assert(!is.hash(1024))
 		assert(!is.hash(/x/))
 		assert(!is.hash(Date))
+		assert(!is.hash({nodeType: 1}))
 	})
 	
 })
@@ -232,6 +233,8 @@ describe('element', function() {
 		if (is.browser) {
 			assert(!is.element(document))
 		}
-		assert(!is.element({nodeType: 1}))
+		if (is.h5) {
+			assert(!is.element({nodeType: 1}))
+		}
 	})
 })
