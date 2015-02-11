@@ -8,6 +8,7 @@ Api
 
 ##### function
 
+- `is.owns`, short for `Object.prototype.hasOwnProperty.call`
 - `is.num` `is.number`
 - `is.int`
 - `is.decimal`

@@ -9,6 +9,17 @@ describe('browser', function() {
 	})
 })
 
+describe('owns', function() {
+	it('is owns', function() {
+		assert(is.owns({a: 1}, 'a'))
+	})
+	it('is not owns', function() {
+		var o = {}
+		assert(o.toString)
+		assert(!is.owns(o, 'toString'))
+	})
+})
+
 describe('number', function() {
 	it('is num', function() {
 		assert(!is.num(NaN))

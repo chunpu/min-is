@@ -25,9 +25,15 @@ function _type(val) {
 	return typeof val
 }
 
+function owns(owner, key) {
+	return obj.hasOwnProperty.call(owner, key)
+}
+
 is._class = _class
 
 is._type = _type
+
+is.owns = owns
 
 // not a number
 is.nan = function(val) {
@@ -115,7 +121,7 @@ is.array = function(arr) {
 
 is.arraylike = function(arr) {
 	if (is.obj(arr)) {
-		if (arr.hasOwnProperty('length')) {
+		if (owns(arr, 'length')) {
 			var len = arr.length
 			if (is.int(len) && len >= 0) {
 				return true
@@ -131,7 +137,7 @@ is.empty = function(val) {
 	}
 	if (is.hash(val)) {
 		for (var key in val) {
-			if (val.hasOwnProperty(key)) {
+			if (owns(val, key)) {
 				return false
 			}
 		}
