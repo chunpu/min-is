@@ -21,6 +21,7 @@ Api
 - `is.arraylike`
 - `is.empty`
 - `is.element`
+- `is.regexp`
 
 
 Merge Api

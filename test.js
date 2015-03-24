@@ -244,8 +244,18 @@ describe('element', function() {
 		if (is.browser) {
 			assert(!is.element(document))
 		}
-		if (is.h5) {
-			assert(!is.element({nodeType: 1}))
-		}
+	})
+})
+
+describe('regexp', function() {
+	it('is regexp', function() {
+		assert(is.regexp(/1/))
+		assert(is.regexp(new RegExp))
+	})
+
+	it('is not regexp', function() {
+		assert(!is.regexp(RegExp))
+		assert(!is.regexp())
+		assert(!is.regexp(null))
 	})
 })

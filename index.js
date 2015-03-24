@@ -146,11 +146,12 @@ is.empty = function(val) {
 }
 
 is.element = function(elem) {
-	if (is.obj(elem) && 1 === elem.nodeType) {
-		if (is.h5) {
-			return /element/.test(_class(elem))
-		}
+	if (elem && 1 === elem.nodeType) {
 		return true
 	}
 	return false
+}
+
+is.regexp = function(val) {
+	return 'regexp' == _class(val)
 }

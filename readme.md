@@ -4,6 +4,14 @@ min-is
 [![Build status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
+[![Dependency Status][david-image]][david-url]
+[npm-image]: https://img.shields.io/npm/v/min-is.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/min-is
+[downloads-image]: http://img.shields.io/npm/dm/min-is.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/min-is
+[david-image]: http://img.shields.io/david/chunpu/min-is.svg?style=flat-square
+[david-url]: https://david-dm.org/chunpu/min-is
+
 
 Check if a value is something
 
@@ -11,7 +19,7 @@ Installation
 ---
 
 ```sh
-npm install min-is
+npm i min-is
 ```
 
 Api
@@ -37,6 +45,7 @@ Api
 - `is.arraylike`
 - `is.empty`
 - `is.element`
+- `is.regexp`
 
 
 Merge Api
@@ -56,11 +65,9 @@ Advance
 License
 ---
 
-ISC
+[![License][license-image]][license-url]
 
-[npm-image]: https://img.shields.io/npm/v/min-is.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/min-is
 [travis-image]: https://img.shields.io/travis/chunpu/min-is.svg?style=flat-square
 [travis-url]: https://travis-ci.org/chunpu/min-is
-[downloads-image]: http://img.shields.io/npm/dm/min-is.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/min-is
+[license-image]: http://img.shields.io/npm/l/min-is.svg?style=flat-square
+[license-url]: #
