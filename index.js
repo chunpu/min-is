@@ -120,13 +120,21 @@ is.array = function(arr) {
 }
 
 is.arraylike = function(arr) {
-	if (is.obj(arr)) {
+	// window has length for iframe too, but it is not arraylike
+	if (!is.window(arr) && is.obj(arr)) {
 		if (owns(arr, 'length')) {
 			var len = arr.length
 			if (is.int(len) && len >= 0) {
 				return true
 			}
 		}
+	}
+	return false
+}
+
+is.window = function(val) {
+	if (val && val.window == val) {
+		return true
 	}
 	return false
 }

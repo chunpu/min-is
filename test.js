@@ -150,6 +150,7 @@ describe('arraylike', function() {
 		assert(!is.arraylike({length: NaN}))
 		assert(!is.arraylike({length: Infinity}))
 		assert(!is.arraylike(true))
+		assert(!is.arraylike(global))
 	})
 })
 
