@@ -2,6 +2,8 @@ var is = exports
 
 var obj = Object.prototype
 
+var navigator = global.navigator
+
 is.browser = (function() {
 	return global.window == global
 })()
@@ -9,6 +11,13 @@ is.browser = (function() {
 // simple modern browser detect
 is.h5 = (function() {
 	if (is.browser && navigator.geolocation) {
+		return true
+	}
+	return false
+})()
+
+is.mobile = (function() {
+	if (is.browser && /mobile/i.test(navigator.userAgent)) {
 		return true
 	}
 	return false

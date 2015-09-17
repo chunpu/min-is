@@ -9,6 +9,19 @@ describe('browser', function() {
 	})
 })
 
+describe('mobile', function() {
+	it('can detect mobile or pc browser', function() {
+		if (is.browser) {
+			if (undefined === document.ontouchstart) {
+				// most situation is equal
+				assert(false === is.mobile)
+			} else {
+				assert(true === is.mobile)
+			}
+		}
+	})
+})
+
 describe('owns', function() {
 	it('is owns', function() {
 		assert(is.owns({a: 1}, 'a'))
