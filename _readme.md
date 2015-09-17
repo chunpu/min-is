@@ -5,6 +5,7 @@ Api
 
 - `is.browser`
 - `is.h5` simple modern browser detect
+- `is.mobile` detect mobile or pc browser
 
 ##### function
 
