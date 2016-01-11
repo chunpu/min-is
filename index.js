@@ -4,6 +4,9 @@ var obj = Object.prototype
 
 var navigator = global.navigator
 
+// reserved words in es3
+// instanceof null undefined arguments boolean false true function int
+
 is.browser = (function() {
 	return global.window == global
 })()
@@ -49,6 +52,10 @@ is.nan = function(val) {
 	return !is.num(val)
 }
 
+is.bool = function(val) {
+	return 'boolean' == _class(val)
+}
+
 is.infinite = function(val) {
 	return val == Infinity || val == -Infinity
 }
@@ -57,7 +64,7 @@ is.num = is.number = function(num) {
 	return !isNaN(num) && 'number' == _class(num)
 }
 
-// int or decimal
+// integer or decimal
 is.iod = function(val) {
 	if (is.num(val) && !is.infinite(val)) {
 		return true
@@ -72,7 +79,7 @@ is.decimal = function(val) {
 	return false
 }
 
-is.int = function(val) {
+is.integer = function(val) {
 	if (is.iod(val)) {
 		return 0 == val % 1
 	}
@@ -132,7 +139,7 @@ is.arraylike = function(arr) {
 	// window has length for iframe too, but it is not arraylike
 	if (!is.window(arr) && is.obj(arr)) {
 		var len = arr.length
-		if (is.int(len) && len >= 0) {
+		if (is.integer(len) && len >= 0) {
 			return true
 		}
 	}

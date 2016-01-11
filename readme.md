@@ -34,8 +34,9 @@ Api
 ##### function
 
 - `is.owns`, short for `Object.prototype.hasOwnProperty.call`
+- `is.bool`
 - `is.num` `is.number`
-- `is.int`
+- `is.integer`
 - `is.decimal`
 - `is.undef`
 - `is.hash` `is.plainObject`

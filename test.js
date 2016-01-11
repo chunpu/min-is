@@ -33,6 +33,18 @@ describe('owns', function() {
 	})
 })
 
+describe('bool', function() {
+	it('is bool', function() {
+		assert(is.bool(true))
+		assert(is.bool(false))
+	})
+	it('is not bool', function() {
+		assert(!is.bool(1))
+		assert(!is.bool({}))
+		assert(!is.bool('true'))
+	})
+})
+
 describe('number', function() {
 	it('is num', function() {
 		assert(!is.num(NaN))
@@ -59,13 +71,13 @@ describe('number', function() {
 		assert(is.iod(0.23423))
 	})
 
-	it('is int', function() {
-		assert(is.int(100))
-		assert(is.int(0))
-		assert(!is.int(10.24))
-		assert(!is.int(NaN))
-		assert(!is.int(''))
-		assert(!is.int(isNaN))
+	it('is integer', function() {
+		assert(is.integer(100))
+		assert(is.integer(0))
+		assert(!is.integer(10.24))
+		assert(!is.integer(NaN))
+		assert(!is.integer(''))
+		assert(!is.integer(isNaN))
 	})
 
 	it('is decimal', function() {
