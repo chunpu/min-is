@@ -90,8 +90,8 @@ describe('number', function() {
 	})
 
 	it('is nan', function() {
-		assert(is.nan())
-		assert(is.nan(null))
+		assert(!is.nan())
+		assert(!is.nan(null))
 		assert(is.nan(NaN))
 
 		assert(!is.nan(Infinity))

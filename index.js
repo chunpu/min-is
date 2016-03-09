@@ -49,7 +49,7 @@ is.owns = owns
 
 // not a number
 is.nan = function(val) {
-	return !is.num(val)
+	return val !== val
 }
 
 is.bool = function(val) {

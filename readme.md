@@ -48,6 +48,7 @@ Api
 - `is.empty`
 - `is.element`
 - `is.regexp`
+- `is.nan`, only `NaN` is true, other is false, unlike `isNaN`
 
 
 Merge Api
