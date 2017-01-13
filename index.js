@@ -33,12 +33,12 @@ is.mobile = function() {
 }
 
 is.wechatApp = function() {
-    if ('object' == typeof wx) {
-        if (wx && is.fn(wx.createVideoContext)) {
-            // wechat js sdk has no createVideoContext
-            return true
-        }
-    }
+	if ('object' == typeof wx) {
+		if (wx && is.fn(wx.createVideoContext)) {
+			// wechat js sdk has no createVideoContext
+			return true
+		}
+	}
 	return false
 }
 
@@ -193,3 +193,4 @@ is.element = function(elem) {
 is.regexp = function(val) {
 	return 'regexp' == _class(val)
 }
+
