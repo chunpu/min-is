@@ -12,14 +12,14 @@ Api
 
 - `is.owns`, short for `Object.prototype.hasOwnProperty.call`
 - `is.bool`
-- `is.num` `is.number`
+- `is.number`
 - `is.integer`
 - `is.decimal`
 - `is.undef`
 - `is.hash` `is.plainObject`
-- `is.obj` `is.object`
+- `is.object`
 - `is.fn`
-- `is.str`
+- `is.string`
 - `is.array`
 - `is.arraylike`
 - `is.empty`

@@ -46,19 +46,19 @@ describe('bool', function() {
 })
 
 describe('number', function() {
-	it('is num', function() {
-		assert(!is.num(NaN))
-		assert(!is.num(''))
-		assert(!is.num())
-		assert(!is.num(null))
-		assert(!is.num(Number))
-		assert(is.num(0))
-		assert(is.num(-100))
-		assert(is.num(-100))
-		assert(is.num(10.3242342))
-		assert(is.num(Math.PI))
-		assert(is.num(Infinity))
-		assert(is.num(-Infinity))
+	it('is number', function() {
+		assert(!is.number(NaN))
+		assert(!is.number(''))
+		assert(!is.number())
+		assert(!is.number(null))
+		assert(!is.number(Number))
+		assert(is.number(0))
+		assert(is.number(-100))
+		assert(is.number(-100))
+		assert(is.number(10.3242342))
+		assert(is.number(Math.PI))
+		assert(is.number(Infinity))
+		assert(is.number(-Infinity))
 	})
 
 	it('is iod', function() {

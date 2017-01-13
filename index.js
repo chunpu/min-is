@@ -76,13 +76,13 @@ is.infinite = function(val) {
 	return val == Infinity || val == -Infinity
 }
 
-is.num = is.number = function(num) {
+is.number = function(num) {
 	return !isNaN(num) && 'number' == _class(num)
 }
 
 // integer or decimal
 is.iod = function(val) {
-	if (is.num(val) && !is.infinite(val)) {
+	if (is.number(val) && !is.infinite(val)) {
 		return true
 	}
 	return false
