@@ -25,13 +25,14 @@ npm i min-is
 Api
 ---
 
-##### boolean
+##### helper
 
-- `is.browser`
+- `is.browser` detect is browser
 - `is.h5` simple modern browser detect
-- `is.mobile` detect mobile or pc browser
+- `is.mobile` detect mobile browser or pc browser
+- `is.wechatApp` detect wechat app
 
-##### function
+##### basic function
 
 - `is.owns`, short for `Object.prototype.hasOwnProperty.call`
 - `is.bool`

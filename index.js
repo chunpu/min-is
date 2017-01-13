@@ -4,27 +4,43 @@ var obj = Object.prototype
 
 var navigator = global.navigator
 
-// reserved words in es3
+// reserved words in es3: instanceof null undefined arguments boolean false true function int
+// only have is.string and is.object, not is.str and is.obj
 // instanceof null undefined arguments boolean false true function int
 
-is.browser = (function() {
-	return global.window == global
-})()
+is.browser = function() {
+	if (!is.wechatApp()) {
+		if (navigator && global.window == global) {
+			return true
+		}
+	}
+	return false
+}
 
 // simple modern browser detect
-is.h5 = (function() {
-	if (is.browser && navigator.geolocation) {
+is.h5 = function() {
+	if (is.browser() && navigator.geolocation) {
 		return true
 	}
 	return false
-})()
+}
 
-is.mobile = (function() {
-	if (is.browser && /mobile/i.test(navigator.userAgent)) {
+is.mobile = function() {
+	if (is.browser() && /mobile/i.test(navigator.userAgent)) {
 		return true
 	}
 	return false
-})()
+}
+
+is.wechatApp = function() {
+    if ('object' == typeof wx) {
+        if (wx && is.fn(wx.createVideoContext)) {
+            // wechat js sdk has no createVideoContext
+            return true
+        }
+    }
+	return false
+}
 
 function _class(val) {
 	var name = obj.toString.call(val)
@@ -96,7 +112,7 @@ is.oof = function(val) {
 }
 
 // regexp should return object
-is.obj = is.object = function(obj) {
+is.object = function(obj) {
 	return is.oof(obj) && 'function' != _class(obj)
 }
 
@@ -122,13 +138,13 @@ is.fn = function(fn) {
 	return 'function' == _class(fn)
 }
 
-is.str = is.string = function(str) {
+is.string = function(str) {
 	return 'string' == _class(str)
 }
 
 // number or string
 is.nos = function(val) {
-	return is.iod(val) || is.str(val)
+	return is.iod(val) || is.string(val)
 }
 
 is.array = function(arr) {
@@ -137,7 +153,7 @@ is.array = function(arr) {
 
 is.arraylike = function(arr) {
 	// window has length for iframe too, but it is not arraylike
-	if (!is.window(arr) && is.obj(arr)) {
+	if (!is.window(arr) && is.object(arr)) {
 		var len = arr.length
 		if (is.integer(len) && len >= 0) {
 			return true
@@ -154,7 +170,7 @@ is.window = function(val) {
 }
 
 is.empty = function(val) {
-	if (is.str(val) || is.arraylike(val)) {
+	if (is.string(val) || is.arraylike(val)) {
 		return 0 === val.length
 	}
 	if (is.hash(val)) {

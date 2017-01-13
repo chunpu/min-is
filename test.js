@@ -4,14 +4,14 @@ var is = require('./')
 describe('browser', function() {
 	it('is browser', function() {
 		if (global.window) {
-			assert(true === is.browser)
+			assert(true === is.browser())
 		}
 	})
 })
 
 describe('mobile', function() {
 	it('can detect mobile or pc browser', function() {
-		if (is.browser) {
+		if (is.browser()) {
 			if (undefined === document.ontouchstart) {
 				// most situation is equal
 				assert(false === is.mobile)
@@ -118,22 +118,22 @@ describe('function', function() {
 })
 
 describe('string', function() {
-	it('is str', function() {
-		assert(is.str('a'))
-		assert(is.str(''))
+	it('is string', function() {
+		assert(is.string('a'))
+		assert(is.string(''))
 		
-		assert(is.str(Object('a')))
-		assert(is.str(String('a')))
-		assert(is.str(new String('a')))
+		assert(is.string(Object('a')))
+		assert(is.string(String('a')))
+		assert(is.string(new String('a')))
 	})
 
-	it('is not str', function() {
-		assert(!is.str(1024))
-		assert(!is.str({a: 1}))
-		assert(!is.str(/x/))
-		assert(!is.str(Date))
-		assert(!is.str())
-		assert(!is.str(null))
+	it('is not string', function() {
+		assert(!is.string(1024))
+		assert(!is.string({a: 1}))
+		assert(!is.string(/x/))
+		assert(!is.string(Date))
+		assert(!is.string())
+		assert(!is.string(null))
 	})
 })
 
@@ -180,17 +180,17 @@ describe('arraylike', function() {
 })
 
 describe('object', function() {
-	it('is obj', function() {
-		assert(is.obj({}))
-		assert(is.obj(new Date))
-		assert(is.obj(global))
-		assert(is.obj(Object('a')))
+	it('is object', function() {
+		assert(is.object({}))
+		assert(is.object(new Date))
+		assert(is.object(global))
+		assert(is.object(Object('a')))
 	})
 
 	it('is not obj', function() {
-		assert(!is.obj())
-		assert(!is.obj(null))
-		assert(!is.obj(true))
+		assert(!is.object())
+		assert(!is.object(null))
+		assert(!is.object(true))
 	})
 })
 
@@ -204,7 +204,7 @@ describe('hash, plain object', function() {
 		assert(!is.hash())
 		assert(!is.hash(null))
 		
-		if (is.browser) {
+		if (is.browser()) {
 			assert(!is.hash(document))
 			assert(!is.hash(window))
 			assert(!is.hash(document.createElement('div')))
@@ -261,13 +261,13 @@ describe('empty', function() {
 
 describe('element', function() {
 	it('is element', function() {
-		if (is.browser) {
+		if (is.browser()) {
 			assert(is.element(document.createElement('div')))
 		}
 	})
 
 	it('is not element', function() {
-		if (is.browser) {
+		if (is.browser()) {
 			assert(!is.element(document))
 		}
 	})
