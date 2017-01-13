@@ -1,17 +1,16 @@
 {
   "name": "min-is",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Check if a value is something",
   "main": "index.js",
   "scripts": {
-    "test": "browserify *test*.js | poor -b ie:6..8,chrome",
+    "test": "mocha test",
     "readme": "pretty-readme > readme.md"
   },
   "author": "chunpu",
   "license": "ISC",
   "devDependencies": {
-    "poor": "latest",
-    "browserify": "latest"
+    "mocha": "latest"
   },
   "repository": {
     "type": "git",
